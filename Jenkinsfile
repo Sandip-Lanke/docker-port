@@ -3,23 +3,23 @@ pipeline {
       agent{
 	      label{
 		        label'built-in'
-				customWorkspace'/mnt/assignmet4/22Q1'
+				customWorkspace'/mnt/assignmet4/22Q2'
 		  } 
 	  }
 	  stages{
-	        stage('stage1-22Q1'){
+	        stage('stage1-22Q2'){
 			    steps {
-				       sh "docker kill 22Q1-httpd"
-				       sh "docker rm 22Q1-httpd"
+				//       sh "docker kill 22Q2-httpd"
+				//       sh "docker rm 22Q2-httpd"
 				       
 				}
 			}
-			stage('docker-stage-22Q1'){
+			stage('docker-stage-22Q2'){
 			      steps{
 				        
-						sh "docker run --name 22Q1-httpd -itdp 80:80 httpd"
-				               sh "chmod -R 777 /mnt/assignmet4/22Q1/index.html"
-						sh "cd /mnt/assignmet4/22Q1 && docker cp index.html 22Q1-httpd:/usr/local/apache2/htdocs/"
+						sh "docker run --name 22Q2-httpd -itdp 90:80 httpd"
+				               sh "chmod -R 777 /mnt/assignmet4/22Q2/index.html"
+						sh "cd /mnt/assignmet4/22Q2 && docker cp index.html 22Q2-httpd:/usr/local/apache2/htdocs/"
 				  }
 			}
 	  }

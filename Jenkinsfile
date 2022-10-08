@@ -9,7 +9,8 @@ pipeline {
 	  stages{
 	        stage('stage1-22Q1'){
 			    steps {
-				       sh "rm -rf *"
+				       sh "docker kill 22Q1-httpd"
+				       sh "docker rm 22Q1-httpd"
 				       
 				}
 			}
@@ -17,6 +18,7 @@ pipeline {
 			      steps{
 				        
 						sh "docker run --name 22Q1-httpd -itdp 80:80 httpd"
+				               sh "chmod -R 777 /mnt/assignmet4/22Q1/docker-port/index.html"
 						sh "cd /mnt/assignmet4/22Q1/docker-port && docker cp index.html 22Q1-httpd:/usr/local/apache2/htdocs/"
 				  }
 			}

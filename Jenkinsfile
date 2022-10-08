@@ -1,4 +1,3 @@
-
 pipeline {
       agent{
 	      label{
@@ -9,8 +8,8 @@ pipeline {
 	  stages{
 	        stage('stage1-22Q2'){
 			    steps {
-				//       sh "docker kill 22Q2-httpd"
-				//       sh "docker rm 22Q2-httpd"
+				       sh "docker kill 22Q2-httpd"
+				       sh "docker rm 22Q2-httpd"
 				       
 				}
 			}
@@ -25,4 +24,3 @@ pipeline {
 	  }
 	  
 }
-
